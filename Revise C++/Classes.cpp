@@ -38,6 +38,7 @@ class sound {
 public:
 void bark(string sound);
 void meow(string sound);
+void anger(string sound);
 };
 
 void sound::bark(string sound){
@@ -47,6 +48,9 @@ void sound::bark(string sound){
 void sound::meow(string sound){
     cout << "Cat sounds as : " << sound << endl;
 }
+void sound::anger(string sound){
+    cout << "Human angers as : " << sound << endl;
+}
 
 
 
@@ -54,6 +58,7 @@ int main(){
 sound cmd;
 cmd.bark("Woof! Woof!");
 cmd.meow("Meow Meow");
+cmd.anger("How Dare you");
 
     return 0;
 }
