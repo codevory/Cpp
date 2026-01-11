@@ -116,15 +116,16 @@ using namespace std;
 //     cout << "\n";
 //     return 0;
 
+// check from here
 class Solution
 {
 public:
     vector<int> majorityElement(vector<int> &nums)
     {
-        // Boyer-Moore (n/3) candidate selection.
-        int cand1 = 0, cand2 = 0;
-        int count1 = 0, count2 = 0;
-
+        int cand1 = 0;
+        int cand2 = 0;
+        int count1 = 0;
+        int count2 = 0;
         for (int num : nums)
         {
             if (num == cand1)
@@ -151,8 +152,9 @@ public:
                 count2--;
             }
         }
-
-        // Verify counts exceed floor(n/3).
+        vector<int> majority;
+        int threshold = static_cast<int>(nums.size() / 3);
+        // verify the threshold
         count1 = count2 = 0;
         for (int num : nums)
         {
@@ -165,9 +167,6 @@ public:
                 count2++;
             }
         }
-
-        vector<int> majority;
-        int threshold = static_cast<int>(nums.size() / 3);
         if (count1 > threshold)
         {
             majority.push_back(cand1);
@@ -176,7 +175,6 @@ public:
         {
             majority.push_back(cand2);
         }
-
         return majority;
     }
 };
@@ -184,7 +182,7 @@ public:
 // start from here
 int main()
 {
-    vector<int> nums = {6, 6, 6, 7, 7, 2, 2, 2};
+    vector<int> nums = {4, 2, 1, 1};
     Solution get;
     vector<int> res = get.majorityElement(nums);
     for (int val : res)
