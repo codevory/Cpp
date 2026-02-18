@@ -41,18 +41,19 @@ public:
     // Given two integers N1 and N2, find their greatest common divisor.
     int Gcd(int n1, int n2)
     {
-        int d = 4;
-        while (d < n1 || d < n2)
+        while (n1 > 0 && n2 > 0)
         {
-            if (n1 % d == 0 && n2 % d == 0)
+            if (n1 > n2)
             {
-                return d;
+                n1 = n1 % n2;
             }
             else
             {
-                d++;
+                n2 = n2 % n1;
             }
-            d++;
+            if (n1 == 0)
+                return n2;
+            return n1;
         }
         return -1;
     }
@@ -66,5 +67,5 @@ int main()
     int n = -122 - 1;
     cout << obj2.checkPalindrome(n) << endl;
     Solution obj3;
-    cout << obj3.Gcd(12, 18) << endl;
+    cout << obj3.Gcd(20, 15) << endl;
 }
