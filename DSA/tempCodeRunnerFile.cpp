@@ -1,1 +1,1 @@
- cout << "\n Sum : " << obj.sumOfNaturalNum(1) << endl;
+now
