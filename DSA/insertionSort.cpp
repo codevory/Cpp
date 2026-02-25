@@ -17,19 +17,17 @@ vector<int> Solution::sortArray(vector<int> arr, int n)
         ans.push_back(arr[i]);
     }
 
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i < n; i++)
     {
-        int mini = i;
-        for (int j = i + 1; j < n; j++)
+        int key = ans[i];
+        int j = i - 1;
+
+        while (j >= 0 && key < ans[j])
         {
-            if (ans[j] < ans[mini])
-            {
-                mini = j;
-            }
-            int temp = ans[mini];
-            ans[mini] = ans[i];
-            ans[i] = temp;
+            ans[j + 1] = ans[j];
+            j--;
         }
+        ans[j + 1] = key;
     }
     return ans;
 }
@@ -41,8 +39,8 @@ int main()
     vector<int> arr3 = {13, 46, 24, 52, 20, 9};
     int n = arr3.size();
     Solution obj;
-    obj.sortArray(arr3, n);
-    for (int val : arr3)
+    vector<int> arr4 = obj.sortArray(arr3, n);
+    for (int val : arr4)
     {
         cout << val << " ";
     }
