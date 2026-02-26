@@ -40,6 +40,7 @@ void Solution::merge(vector<int> &arr, int high, int low, int mid)
     for (int i = low; i <= high; i++)
     {
         arr[i] = temp[i - low];
+        // cout << temp[i] << " ";
     }
 }
 
@@ -56,6 +57,7 @@ void Solution::mergeSort(vector<int> &arr, int low, int high)
 int main()
 {
     vector<int> arr = {1, 3, 2, 4, 7, 5};
+    int mid = (0 + arr.size() - 1) / 2;
     int arr2[] = {5, 4, 3, 2, 1};
     vector<int> arr3 = {13, 46, 24, 52, 20, 9};
     int n = arr3.size();
