@@ -1,1 +1,1 @@
-now
+            secHigh = min(highest, secHigh);
