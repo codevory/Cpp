@@ -21,7 +21,7 @@ public:
 
                 for (int k = i; k <= j; k++)
                 {
-                    currSum += arr[i];
+                    currSum += arr[k];
                 }
 
                 if (currSum == k)
@@ -29,6 +29,32 @@ public:
                     maxLength = max(maxLength, j - i + 1);
                 }
             }
+        }
+        return maxLength;
+    }
+    int longestSubArrOptimal(vector<int> &arr, int k)
+    {
+        int n = arr.size();
+        int lp = 0;
+        int rp = 0;
+        int maxLength = 0;
+        int sum = arr[0];
+
+        while (rp < n)
+        {
+
+            while (lp <= rp && sum > k)
+            {
+                sum -= arr[lp];
+                lp++;
+            }
+            if (sum == k)
+            {
+                maxLength = max(maxLength, rp - lp + 1);
+            }
+            rp++;
+            if (rp < n)
+                sum += arr[rp];
         }
         return maxLength;
     }
@@ -40,4 +66,5 @@ int main()
     int k = 15;
     Solution ans;
     cout << ans.longestSubArraySum(arr, k) << endl;
+    cout << ans.longestSubArrOptimal(arr, k) << endl;
 }
