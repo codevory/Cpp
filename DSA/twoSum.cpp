@@ -51,30 +51,16 @@ public:
     }
     vector<int> optimalTwoSum(vector<int> &arr, int tar)
     {
-        int n = arr.size();
-        vector<pair<int, int>> numsWithIndex;
+        int n = arr.size(); // O(N) -complexity
+        unordered_map<int, int> mp;
         for (int i = 0; i < n; i++)
         {
-            numsWithIndex.push_back({arr[i], i});
-        }
-
-        int lp = 0;
-        int rp = n - 1;
-        sort(numsWithIndex.begin(), numsWithIndex.end());
-
-        while (lp <= rp)
-        {
-            int sum = numsWithIndex[lp].first + numsWithIndex[rp].first;
-            if (sum == tar)
+            int remaining = tar - arr[i];
+            if (mp.find(remaining) != mp.end())
             {
-                return {numsWithIndex[lp].second, numsWithIndex[rp].second};
+                return {mp[remaining], i};
             }
-            else if (sum < tar)
-                lp++;
-            else
-            {
-                rp--;
-            }
+            mp[arr[i]] = i;
         }
         return {-1, -1};
     }
