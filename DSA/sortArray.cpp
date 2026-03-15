@@ -53,6 +53,29 @@ public:
             arr[i] = 2;
         }
     }
+    void sortArrayOptimal(vector<int> &arr)
+    {
+        int low = 0;
+        int mid = 0;
+        int high = arr.size() - 1;
+
+        while (mid <= high)
+        {
+            if (arr[mid] == 0)
+            {
+                swap(arr[mid], arr[low]);
+                mid++;
+                low++;
+            }
+            else if (arr[mid] == 1)
+                mid++;
+            else
+            {
+                swap(arr[mid], arr[high]);
+                high--;
+            }
+        }
+    }
 };
 
 int main()
@@ -60,7 +83,8 @@ int main()
     vector<int> arr = {1, 0, 1, 2, 0, 2, 1};
     Solution obj;
     // vector<int> ans = obj.sortArray(arr);
-    obj.sortArrayBetter(arr);
+    // obj.sortArrayBetter(arr);
+    obj.sortArrayOptimal(arr);
     for (int x : arr)
     {
         cout << x << " ";
