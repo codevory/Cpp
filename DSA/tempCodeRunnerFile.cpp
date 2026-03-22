@@ -1,1 +1,1 @@
-            secHigh = min(highest, secHigh);
+            mid++;
