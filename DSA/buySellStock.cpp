@@ -48,7 +48,7 @@ int main()
 
     Solution ans;
     cout << ans.maxProfit(arr1) << endl;
-    cout << ans.maxProfit(arr2) << endl;
+    cout << ans.maxProfitOptimal(arr2) << endl;
     cout << ans.maxProfit(arr3) << endl;
     cout << ans.maxProfit(arr4) << endl;
     cout << ans.maxProfitOptimal(arr1) << endl;
