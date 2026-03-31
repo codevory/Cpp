@@ -1,1 +1,1 @@
-            mid++;
+                ans.push_back(maxElement);
